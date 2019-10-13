@@ -6,7 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(path = "/api", value = "user")
+@FeignClient(path = "/api", value = "devops-server")
 public interface UserFeignClient {
 
     @GetMapping(value = "get", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
