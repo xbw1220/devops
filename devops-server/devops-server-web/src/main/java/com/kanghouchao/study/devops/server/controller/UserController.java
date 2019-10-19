@@ -7,6 +7,9 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author kanghouchao
+ */
 @RestController
 @RefreshScope
 public class UserController implements UserAPI {
