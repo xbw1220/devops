@@ -1,8 +1,9 @@
+
 spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 10.0.9.250:8848
+        server-addr: nacos_server:8848
     inetutils:
       use-only-site-local-interfaces: true
       preferred-networks: ['10.0.9']
