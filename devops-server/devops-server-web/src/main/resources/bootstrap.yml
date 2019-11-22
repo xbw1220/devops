@@ -2,9 +2,9 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: nacos_server:8848
+        server-addr: nacos:8848
       config:
-        server-addr: nacos_server:8848
+        server-addr: nacos:8848
         file-extension: properties
     inetutils:
       use-only-site-local-interfaces: true
