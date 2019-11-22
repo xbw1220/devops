@@ -1,50 +1,56 @@
 version: "3.7"
-#version: "2"
 services:
+  nginx:
+    image: 192.168.173.91:8082/repository/container/nginx:latest
+    networks:
+      - devops_net
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/logs:/var/log/nginx
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    deploy:
+      placement:
+        constraints: [node.role == manager]
   server:
-#    hostname: devops_server
     image: 192.168.173.91:8082/repository/container/server:latest
     networks:
-      - net
+      - devops_net
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 4
   client:
-#    hostname: devops_client
+    hostname: client
     image: 192.168.173.91:8082/repository/container/client:latest
     networks:
-      - net
-#    ports:
-#      - "8083:8080"
+      - devops_net
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 4
   nacos:
     hostname: nacos
     image: 192.168.173.91:8082/repository/container/nacos-server:latest
     networks:
-      - net
+      - devops_net
     environment:
+      - PREFER_HOST_MODE=hostname
       - MODE=standalone
-#    ports:
-#      - "8848:8848"
-#      - "9555:9555"
+    volumes:
+      - ./standalone-logs/:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8848:8848"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
   visualizer:
     image: 192.168.173.91:8082/repository/container/visualizer:latest
-    networks:
-      - net
     stop_grace_period: 1m30s
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
     ports:
       - "8080:8080"
-    deploy:
-      placement:
-        constraints: [node.role == manager]
 networks:
-  net:
-    driver: overlay
-    ipam:
-      config:
-        - subnet: 10.0.9.0/24
-#    external: true
+  devops_net:
+    external: true
