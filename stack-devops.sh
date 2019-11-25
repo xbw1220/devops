@@ -1,3 +1,3 @@
 #! /bin/bash
-docker stack rm devops
-docker stack deploy --with-registry-auth -c devops-compose.yml devops
+sudo docker stack rm devops
+sudo docker stack deploy --with-registry-auth -c devops-compose.yml devops
