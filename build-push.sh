@@ -1,5 +1,5 @@
 #! /bin/bash
-mvn clean package -e -B -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
+/usr/local/maven/bin/mvn clean package -e -B -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
 sudo docker rmi -f 192.168.173.91:8082/repository/container/server:latest
 sudo docker rmi -f 192.168.173.91:8082/repository/container/client:latest
 cd ~/IdeaProjects/devops/devops-server/devops-server-web && sudo docker build -t 192.168.173.91:8082/repository/container/server .

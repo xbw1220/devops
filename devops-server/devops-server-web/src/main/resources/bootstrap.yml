@@ -7,8 +7,8 @@ spring:
       config:
         server-addr: nacos:8848
         file-extension: properties
-    inetutils:
-      preferred-networks: ['10.0']
-      use-only-site-local-interfaces: true
+#    inetutils:
+#      preferred-networks: ['10.0']
+#      use-only-site-local-interfaces: true
   application:
     name: devops-server

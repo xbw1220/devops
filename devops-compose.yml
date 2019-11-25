@@ -23,6 +23,8 @@ services:
   client:
     hostname: client
     image: 192.168.173.91:8082/repository/container/client:latest
+    ports:
+      - "8845:8080"
     networks:
       - devops_net
     deploy:
@@ -51,6 +53,9 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
     ports:
       - "8080:8080"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
 networks:
   devops_net:
     external: true
