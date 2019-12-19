@@ -1,318 +1,100 @@
-2019-11-25 19:33:00,367 INFO initializing Raft sub-system
+2019-12-18 21:45:57,524 INFO initializing Raft sub-system
 
-2019-11-25 19:33:00,369 INFO finish loading all datums, size: 0 cost 1 ms.
+2019-12-18 21:45:57,531 INFO finish loading all datums, size: 0 cost 0 ms.
 
-2019-11-25 19:33:00,370 INFO cache loaded, datum count: 0, current term: 0
+2019-12-18 21:45:57,531 INFO raft notifier started
 
-2019-11-25 19:33:00,371 INFO finish to load data from disk, cost: 3 ms.
+2019-12-18 21:45:57,532 INFO cache loaded, datum count: 0, current term: 0
 
-2019-11-25 19:33:00,373 INFO raft notifier started
+2019-12-18 21:45:57,532 INFO finish to load data from disk, cost: 8 ms.
 
-2019-11-25 19:33:00,290 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
+2019-12-18 21:45:57,537 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
 
-2019-11-25 19:33:00,376 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
+2019-12-18 21:45:57,420 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
 
-2019-11-25 19:33:00,381 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
+2019-12-18 21:45:57,543 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
 
-2019-11-25 19:33:00,425 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+2019-12-18 21:45:57,685 INFO add listener: com.alibaba.nacos.naming.domains.meta.
 
-2019-11-25 19:33:02,583 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
+2019-12-18 21:46:01,058 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
 
-2019-11-25 19:33:04,248 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
+2019-12-18 21:46:04,971 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-client
 
-2019-11-25 19:33:04,468 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-client
+2019-12-18 21:46:06,149 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
 
-2019-11-25 19:33:05,286 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+2019-12-18 21:46:07,414 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
 
-2019-11-25 19:33:05,286 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
+2019-12-18 21:46:07,414 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
 
-2019-11-25 19:33:05,287 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+2019-12-18 21:46:07,414 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
 
-2019-11-25 19:33:08,291 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+2019-12-18 21:46:09,047 INFO leader timeout, start voting,leader: {"heartbeatDueMs":4500,"ip":"nacos:8848","leaderDueMs":17504,"state":"FOLLOWER","term":0,"voteFor":""}, term: 0
 
-2019-11-25 19:38:50,636 INFO initializing Raft sub-system
+2019-12-18 21:46:09,422 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
 
-2019-11-25 19:38:50,637 INFO finish loading all datums, size: 0 cost 1 ms.
+2019-12-18 21:55:46,191 INFO initializing Raft sub-system
 
-2019-11-25 19:38:50,638 INFO raft notifier started
+2019-12-18 21:55:46,206 INFO finish loading all datums, size: 0 cost 1 ms.
 
-2019-11-25 19:38:50,638 INFO cache loaded, datum count: 0, current term: 0
+2019-12-18 21:55:46,207 INFO cache loaded, datum count: 0, current term: 0
 
-2019-11-25 19:38:50,638 INFO finish to load data from disk, cost: 2 ms.
+2019-12-18 21:55:46,207 INFO finish to load data from disk, cost: 2 ms.
 
-2019-11-25 19:38:50,531 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
+2019-12-18 21:55:46,209 INFO raft notifier started
 
-2019-11-25 19:38:50,646 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
+2019-12-18 21:55:46,062 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
 
-2019-11-25 19:38:50,650 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
+2019-12-18 21:55:46,231 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
 
-2019-11-25 19:38:50,699 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+2019-12-18 21:55:46,257 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
 
-2019-11-25 19:38:52,871 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
+2019-12-18 21:55:46,526 INFO add listener: com.alibaba.nacos.naming.domains.meta.
 
-2019-11-25 19:38:54,477 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
+2019-12-18 21:55:52,211 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
 
-2019-11-25 19:38:54,797 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-client
+2019-12-18 21:55:54,904 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-client
 
-2019-11-25 19:38:55,526 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+2019-12-18 21:55:55,500 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
 
-2019-11-25 19:38:55,526 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
+2019-12-18 21:55:56,053 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
 
-2019-11-25 19:38:55,527 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+2019-12-18 21:55:56,053 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
 
-2019-11-25 19:38:58,531 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+2019-12-18 21:55:56,053 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
 
-2019-11-25 19:44:31,238 INFO initializing Raft sub-system
+2019-12-18 21:55:58,091 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
 
-2019-11-25 19:44:31,257 INFO finish loading all datums, size: 0 cost 1 ms.
+2019-12-18 22:46:31,979 INFO initializing Raft sub-system
 
-2019-11-25 19:44:31,258 INFO cache loaded, datum count: 0, current term: 0
+2019-12-18 22:46:31,982 INFO finish loading all datums, size: 0 cost 1 ms.
 
-2019-11-25 19:44:31,258 INFO finish to load data from disk, cost: 2 ms.
+2019-12-18 22:46:31,691 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
 
-2019-11-25 19:44:31,269 INFO raft notifier started
+2019-12-18 22:46:31,984 INFO cache loaded, datum count: 0, current term: 0
 
-2019-11-25 19:44:30,894 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
+2019-12-18 22:46:31,984 INFO finish to load data from disk, cost: 3 ms.
 
-2019-11-25 19:44:31,279 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
+2019-12-18 22:46:31,985 INFO raft notifier started
 
-2019-11-25 19:44:31,288 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
+2019-12-18 22:46:31,997 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
 
-2019-11-25 19:44:31,790 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+2019-12-18 22:46:32,008 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
 
-2019-11-25 19:44:38,835 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
+2019-12-18 22:46:32,282 INFO add listener: com.alibaba.nacos.naming.domains.meta.
 
-2019-11-25 19:44:41,583 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-client
+2019-12-18 22:46:35,298 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
 
-2019-11-25 19:44:44,395 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
+2019-12-18 22:46:38,181 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
 
-2019-11-25 19:44:45,836 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+2019-12-18 22:46:41,662 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
 
-2019-11-25 19:44:45,837 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
+2019-12-18 22:46:41,662 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
 
-2019-11-25 19:44:45,837 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+2019-12-18 22:46:41,662 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
 
-2019-11-25 19:44:48,881 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+2019-12-18 22:46:42,273 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-client
 
-2019-11-25 19:49:12,569 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
+2019-12-18 22:46:43,681 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
 
-2019-11-25 19:49:12,887 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 19:49:12,888 INFO initializing Raft sub-system
-
-2019-11-25 19:49:12,907 INFO finish loading all datums, size: 0 cost 1 ms.
-
-2019-11-25 19:49:12,908 INFO cache loaded, datum count: 0, current term: 0
-
-2019-11-25 19:49:12,908 INFO finish to load data from disk, cost: 2 ms.
-
-2019-11-25 19:49:12,907 INFO raft notifier started
-
-2019-11-25 19:49:12,968 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
-
-2019-11-25 19:49:13,153 INFO add listener: com.alibaba.nacos.naming.domains.meta.
-
-2019-11-25 19:49:15,595 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
-
-2019-11-25 19:49:17,122 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-client
-
-2019-11-25 19:49:17,555 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 19:49:17,555 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 19:49:17,555 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 19:49:17,918 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
-
-2019-11-25 19:49:20,566 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 19:49:20,917 INFO leader timeout, start voting,leader: {"heartbeatDueMs":5000,"ip":"nacos:8848","leaderDueMs":15264,"state":"FOLLOWER","term":0,"voteFor":""}, term: 0
-
-2019-11-25 19:55:38,346 INFO initializing Raft sub-system
-
-2019-11-25 19:55:38,161 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 19:55:38,348 INFO raft notifier started
-
-2019-11-25 19:55:38,348 INFO finish loading all datums, size: 0 cost 0 ms.
-
-2019-11-25 19:55:38,349 INFO cache loaded, datum count: 0, current term: 0
-
-2019-11-25 19:55:38,349 INFO finish to load data from disk, cost: 1 ms.
-
-2019-11-25 19:55:38,362 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 19:55:38,374 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
-
-2019-11-25 19:55:38,541 INFO add listener: com.alibaba.nacos.naming.domains.meta.
-
-2019-11-25 19:55:42,486 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
-
-2019-11-25 19:55:48,127 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 19:55:48,127 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 19:55:48,127 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 19:55:50,159 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 19:56:10,278 INFO initializing Raft sub-system
-
-2019-11-25 19:56:10,279 INFO finish loading all datums, size: 0 cost 0 ms.
-
-2019-11-25 19:56:10,281 INFO cache loaded, datum count: 0, current term: 0
-
-2019-11-25 19:56:10,281 INFO finish to load data from disk, cost: 2 ms.
-
-2019-11-25 19:56:10,282 INFO raft notifier started
-
-2019-11-25 19:56:10,074 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 19:56:10,307 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
-
-2019-11-25 19:56:10,315 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 19:56:10,440 INFO add listener: com.alibaba.nacos.naming.domains.meta.
-
-2019-11-25 19:56:12,906 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
-
-2019-11-25 19:56:15,065 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 19:56:15,065 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 19:56:15,065 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 19:56:15,228 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-client
-
-2019-11-25 19:56:15,596 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
-
-2019-11-25 19:56:18,070 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 20:18:48,602 INFO initializing Raft sub-system
-
-2019-11-25 20:18:48,608 INFO raft notifier started
-
-2019-11-25 20:18:48,609 INFO finish loading all datums, size: 0 cost 1 ms.
-
-2019-11-25 20:18:48,610 INFO cache loaded, datum count: 0, current term: 0
-
-2019-11-25 20:18:48,613 INFO finish to load data from disk, cost: 5 ms.
-
-2019-11-25 20:18:48,381 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 20:18:48,620 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
-
-2019-11-25 20:18:48,636 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 20:18:48,811 INFO add listener: com.alibaba.nacos.naming.domains.meta.
-
-2019-11-25 20:18:54,635 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
-
-2019-11-25 20:19:01,120 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
-
-2019-11-25 20:19:01,133 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
-
-2019-11-25 20:19:02,367 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-client
-
-2019-11-25 20:19:03,348 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 20:19:03,348 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 20:19:03,348 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 20:19:06,360 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 20:29:27,267 INFO initializing Raft sub-system
-
-2019-11-25 20:29:27,015 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 20:29:27,276 INFO raft notifier started
-
-2019-11-25 20:29:27,277 INFO finish loading all datums, size: 0 cost 1 ms.
-
-2019-11-25 20:29:27,278 INFO cache loaded, datum count: 0, current term: 0
-
-2019-11-25 20:29:27,278 INFO finish to load data from disk, cost: 2 ms.
-
-2019-11-25 20:29:27,287 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 20:29:27,312 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
-
-2019-11-25 20:29:27,677 INFO add listener: com.alibaba.nacos.naming.domains.meta.
-
-2019-11-25 20:29:33,527 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
-
-2019-11-25 20:29:36,988 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 20:29:36,988 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 20:29:36,988 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 20:29:39,004 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 20:29:41,736 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
-
-2019-11-25 20:29:42,729 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-client
-
-2019-11-25 20:56:02,377 INFO initializing Raft sub-system
-
-2019-11-25 20:56:02,381 INFO finish loading all datums, size: 0 cost 1 ms.
-
-2019-11-25 20:56:02,382 INFO cache loaded, datum count: 0, current term: 0
-
-2019-11-25 20:56:02,382 INFO finish to load data from disk, cost: 2 ms.
-
-2019-11-25 20:56:02,283 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 20:56:02,384 INFO raft notifier started
-
-2019-11-25 20:56:02,394 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
-
-2019-11-25 20:56:02,401 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 20:56:02,464 INFO add listener: com.alibaba.nacos.naming.domains.meta.
-
-2019-11-25 20:56:06,018 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
-
-2019-11-25 20:56:11,421 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
-
-2019-11-25 20:56:12,266 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 20:56:12,266 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 20:56:12,266 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 20:56:14,283 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 20:56:37,944 INFO initializing Raft sub-system
-
-2019-11-25 20:56:37,958 INFO finish loading all datums, size: 0 cost 0 ms.
-
-2019-11-25 20:56:37,959 INFO raft notifier started
-
-2019-11-25 20:56:37,807 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 20:56:37,978 INFO cache loaded, datum count: 0, current term: 0
-
-2019-11-25 20:56:37,980 INFO finish to load data from disk, cost: 22 ms.
-
-2019-11-25 20:56:37,981 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 20:56:38,002 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
-
-2019-11-25 20:56:38,128 INFO add listener: com.alibaba.nacos.naming.domains.meta.
-
-2019-11-25 20:56:43,077 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
-
-2019-11-25 20:56:46,813 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-server
-
-2019-11-25 20:56:47,783 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 20:56:47,783 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
-
-2019-11-25 20:56:47,783 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
-
-2019-11-25 20:56:48,062 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@devops-client
-
-2019-11-25 20:56:49,794 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"nacos","key":"nacos:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+2019-12-18 22:46:45,488 INFO leader timeout, start voting,leader: {"heartbeatDueMs":5000,"ip":"nacos:8848","leaderDueMs":15956,"state":"FOLLOWER","term":0,"voteFor":""}, term: 0
 

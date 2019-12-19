@@ -1,0 +1,8 @@
+com/kanghouchao/study/devops/server/service/impl/DoublerElevenGiftInfoStrategyServiceImpl.class
+com/kanghouchao/study/devops/server/controller/GiftController.class
+com/kanghouchao/study/devops/server/ServerApplication.class
+com/kanghouchao/study/devops/server/vo/GiftVO.class
+com/kanghouchao/study/devops/server/vo/UserVO.class
+com/kanghouchao/study/devops/server/service/GiftInfoContext.class
+com/kanghouchao/study/devops/server/service/impl/SummerBuyDayGiftInfoStrategyServiceImpl.class
+com/kanghouchao/study/devops/server/service/IGiftInfoStrategyService.class

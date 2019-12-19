@@ -15,7 +15,8 @@
  */
 package com.kanghouchao.study.devops.server.service.impl;
 
-import com.kanghouchao.study.devops.server.enums.ActivityType;
+import com.github.alturkovic.lock.redis.alias.RedisLocked;
+import com.kanghouchao.study.devops.server.api.enums.ActivityType;
 import com.kanghouchao.study.devops.server.service.IGiftInfoStrategyService;
 import com.kanghouchao.study.devops.server.vo.GiftVO;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,7 @@ public class DoublerElevenGiftInfoStrategyServiceImpl implements IGiftInfoStrate
     private final ActivityType type = ActivityType.DoubleEleven;
 
     @Override
+    @RedisLocked(expression = "#subjectId")
     public GiftVO get(Long subjectId) {
         GiftVO vo = new GiftVO();
         vo.setSubjectId(subjectId);

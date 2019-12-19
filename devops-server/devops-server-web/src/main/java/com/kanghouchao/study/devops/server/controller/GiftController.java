@@ -15,12 +15,15 @@
  */
 package com.kanghouchao.study.devops.server.controller;
 
-import com.kanghouchao.study.devops.server.enums.ActivityType;
+import com.kanghouchao.study.devops.server.api.client.GiftAPI;
+import com.kanghouchao.study.devops.server.api.dto.GiftDTO;
+import com.kanghouchao.study.devops.server.api.enums.ActivityType;
 import com.kanghouchao.study.devops.server.service.GiftInfoContext;
 import com.kanghouchao.study.devops.server.vo.GiftVO;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,15 +34,20 @@ import org.springframework.web.bind.annotation.RestController;
  * 联系方式: hchkang8710@gmail.com
  * <p/>
  */
+@Slf4j
 @RestController
 @RequestMapping("gift")
 @AllArgsConstructor
-public class GiftController {
+public class GiftController implements GiftAPI {
 
     private GiftInfoContext context;
 
-    @GetMapping("get")
-    public ResponseEntity<GiftVO> get(ActivityType type, Long subjectId) {
-        return ResponseEntity.ok(context.getGiftInfo(subjectId, type));
+    @Override
+    public ResponseEntity<GiftDTO> get(ActivityType type, Long subjectId) {
+        log.debug("the type is {}", type);
+        GiftVO vo = context.getGiftInfo(subjectId, type);
+        GiftDTO dto = new GiftDTO();
+        BeanUtils.copyProperties(vo, dto);
+        return ResponseEntity.ok(dto);
     }
 }

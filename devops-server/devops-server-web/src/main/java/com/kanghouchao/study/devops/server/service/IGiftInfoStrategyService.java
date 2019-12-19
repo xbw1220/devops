@@ -15,7 +15,7 @@
  */
 package com.kanghouchao.study.devops.server.service;
 
-import com.kanghouchao.study.devops.server.enums.ActivityType;
+import com.kanghouchao.study.devops.server.api.enums.ActivityType;
 import com.kanghouchao.study.devops.server.vo.GiftVO;
 
 /**

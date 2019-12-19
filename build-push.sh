@@ -1,5 +1,5 @@
 #! /bin/bash
-/usr/local/maven/bin/mvn clean install
+/usr/local/maven/bin/mvn clean install -e -am -B -Dmaven.test.skip=true -pl devops-server/devops-server-api,devops-client/devops-client-api
 /usr/local/maven/bin/mvn clean package -e -B -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
 sudo docker rmi -f 192.168.173.91:8082/repository/container/server:latest
 sudo docker rmi -f 192.168.173.91:8082/repository/container/client:latest

@@ -15,13 +15,12 @@
  */
 package com.kanghouchao.study.devops.server.service;
 
-import com.kanghouchao.study.devops.server.enums.ActivityType;
+import com.kanghouchao.study.devops.server.api.enums.ActivityType;
 import com.kanghouchao.study.devops.server.vo.GiftVO;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Lurker
