@@ -19,9 +19,9 @@ jobs:
         java-version: 1.8
     - name: Build
       run: |
-        cd devops-server && mvn -q -e -B -U clean install -pl devops-server-api && cd ..
         mvn -q -e -B -U clean install -pl devops-client/devops-client-api
-        mvn -q -e -B -U clean package -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
+        mvn -q -e -B -U clean install -pl devops-server/devops-server-api
+        mvn -q -e -B -U clean package -Dmaven.test.skip=true -pl devops-client/devops-client-web,devops-server/devops-server-web
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v1
