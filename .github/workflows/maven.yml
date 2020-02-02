@@ -25,7 +25,7 @@ jobs:
         mvn -q -e -B -U clean package -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
         mkdir -p target && find . -type f -iname "*.jar"|xargs -i cp {} ./target/|pwd && ls -lha ./target/
         pwd
-        ls -l | grep target
+        ls -l target/*
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v1
