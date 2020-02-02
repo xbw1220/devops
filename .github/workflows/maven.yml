@@ -19,7 +19,7 @@ jobs:
         java-version: 1.8
 
       #        mvn -q -e -B -U clean install -pl devops-client/devops-client-api
-    - name: Build
+    - name: Maven Build
       run: |
         mvn -q -e -B -U clean install
         mvn -q -e -B -U clean package -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
