@@ -23,7 +23,7 @@ jobs:
       run: |
         mvn -q -e -B -U clean install
         mvn -q -e -B -U clean package -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
-        mkdir -p target && find . -type f -iname "devops-*-web-1.0-SNAPSHOT" | xargs -i cp {} ./target/ | pwd && ls -lha ./target/
+        mkdir -p target && find . -type f -iname "devops-*-web-1.0-SNAPSHOT.jar" | xargs -i cp {} ./target/ | pwd && ls -lha ./target/
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v1
