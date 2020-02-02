@@ -23,19 +23,13 @@ jobs:
       run: |
         mvn -q -e -B -U clean install
         mvn -q -e -B -U clean package -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
-        apt update -y && apt install -y tree
-        tree -L 2
+        mkdir -p target && find . -type f -iname "*.jar"|xargs -i cp {} ./target/|pwd && ls -lha ./target/
 
-    - name: Upload Artifact client-web
+    - name: Upload Artifact
       uses: actions/upload-artifact@v1
       with:
-        name: clinet-web
-        path: devops-client/devops-client-web/target/*.jar
+        name: devops-web
+        path: target/*.jar
 
-    - name: Upload Artifact server-web
-      uses: actions/upload-artifact@v1
-      with:
-        name: server-web
-        path: devops-server/devops-server-web/target/*.jar
       
 
