@@ -21,6 +21,8 @@ jobs:
       #        mvn -q -e -B -U clean install -pl devops-client/devops-client-api
     - name: Build
       run: |
+        mvn -q -e -B -U clean install -pl devops-client/devops-client-api
+        mvn -q -e -B -U clean install package -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
         mvn -q -e -B -U clean install -pl devops-server/devops-server-api
         mvn -q -e -B -U clean package -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
 
