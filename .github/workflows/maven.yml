@@ -23,6 +23,7 @@ jobs:
       run: |
         mvn -q -e -B -U clean install
         mvn -q -e -B -U clean package -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
+        ls -l
 
     - name: Upload Artifact client-web
       uses: actions/upload-artifact@v1
