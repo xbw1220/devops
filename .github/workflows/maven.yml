@@ -24,7 +24,9 @@ jobs:
         mvn clean package -e -B -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
 
     - name: Upload Artifact
-      needs: Build
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@v1
+      with:
+        name: Build
+        path: "**/target/*.jar"
       
 
