@@ -15,6 +15,6 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
 #       run: mvn -B package --file pom.xml
-      run: mvn -e -B -U clean install -pl devops-server/devops-server-api
+      run: mvn -q -e -B -U clean install -pl devops-server/devops-server-api
       
 
