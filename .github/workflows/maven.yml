@@ -37,10 +37,10 @@ jobs:
     - name: image build server
       run: |
         cp devops-server/devops-server-web/Dockerfile Dockerfile
-        docker build -t registry.cn-shenzhen.aliyuncs.com/puhengkeji/server --build-arg git_hash=server_`git rev-parse HEAD` .
+        docker build -t xbw1220/server --build-arg git_hash=server_`git rev-parse HEAD` .
         rm -f Dockerfile
-        echo "KZu8RIlynWJ7r" | docker login --username=puhengkeji --password-stdin registry.cn-shenzhen.aliyuncs.com
-        docker push registry.cn-shenzhen.aliyuncs.com/puhengkeji/client
+        echo "xibowei1220.." | docker login --username=xbw1220 --password-stdin
+        docker push xbw1220/server
         docker logout
 
     - name: Upload Artifact
