@@ -30,7 +30,7 @@ jobs:
         cp devops-client/devops-client-web/Dockerfile Dockerfile
         docker build -t xbw1220/client --build-arg git_hash=client_`git rev-parse HEAD` .
         rm -f Dockerfile
-        echo "xibowei1220.." | docker login --username=puhengkeji --password-stdin
+        echo "xibowei1220.." | docker login --username=xbw1220 --password-stdin
         docker push xbw1220/client
         docker logout
 
