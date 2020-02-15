@@ -28,10 +28,10 @@ jobs:
     - name: image build client
       run: |
         cp devops-client/devops-client-web/Dockerfile Dockerfile
-        docker build -t registry.cn-shenzhen.aliyuncs.com/puhengkeji/client --build-arg git_hash=client_`git rev-parse HEAD` .
+        docker build -t xbw1220/client --build-arg git_hash=client_`git rev-parse HEAD` .
         rm -f Dockerfile
-        echo "KZu8RIlynWJ7r" | docker login --username=puhengkeji --password-stdin registry.cn-shenzhen.aliyuncs.com
-        docker push registry.cn-shenzhen.aliyuncs.com/puhengkeji/client
+        echo "xibowei1220.." | docker login --username=puhengkeji --password-stdin
+        docker push xbw1220/client
         docker logout
 
     - name: image build server
