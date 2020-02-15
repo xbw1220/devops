@@ -17,19 +17,10 @@ package com.kanghouchao.study.devops.server.service;
 
 import com.kanghouchao.study.devops.server.api.enums.ActivityType;
 import com.kanghouchao.study.devops.server.vo.GiftVO;
-import org.redisson.Redisson;
-import org.redisson.api.RAtomicLong;
-import org.redisson.api.RLockReactive;
-import org.redisson.api.RedissonClient;
-import org.redisson.api.RedissonReactiveClient;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author Lurker
@@ -44,12 +35,6 @@ public class GiftInfoContext {
     @Resource
     private List<IGiftInfoStrategyService> services;
 
-    @Autowired
-    private RedissonClient redissonClient;
-
-    @Value("${max.thread.count:80}")
-    private Long maxThreadCount;
-
     /**
      * 对外暴露的统一获取礼品信息的返回
      *
@@ -58,18 +43,6 @@ public class GiftInfoContext {
      * @return 礼品信息
      */
     public GiftVO getGiftInfo(Long subjectId, ActivityType type) {
-        RedissonReactiveClient reactive = Redisson.createReactive(redissonClient.getConfig());
-        RLockReactive lock = reactive.getLock(subjectId.toString());
-        Mono<Boolean> lockRes = lock.tryLock(100, 10, TimeUnit.SECONDS);
-        lockRes.doOnNext(res -> {
-            RAtomicLong atomicLong = redissonClient.getAtomicLong("myAtomicLong");
-            if (!atomicLong.isExists()) {
-                atomicLong.set(maxThreadCount);
-            }
-            if (atomicLong.get() > 0) {
-                System.out.println("I'm get Lock,I'm doing my work and I want told you the subject is " + atomicLong.decrementAndGet());
-            }
-        }).doFinally(res -> lock.unlock()).subscribe();
         IGiftInfoStrategyService service = services.stream().filter(
                 s -> s.getType().equals(type)
         ).findFirst().orElseThrow(() -> new RuntimeException("对此类型没有业务实现"));

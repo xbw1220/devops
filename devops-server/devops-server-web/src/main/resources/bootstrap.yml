@@ -12,9 +12,5 @@ spring:
       eager: true
       transport:
         dashboard: sentinel:8858
-  redis:
-    host: redis
-    port: 7369
-
   application:
     name: devops-server

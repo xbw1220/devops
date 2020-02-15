@@ -1,5 +1,15 @@
 version: "3.7"
 services:
+  visualizer:
+    image: 192.168.173.91:8082/repository/container/visualizer:latest
+    stop_grace_period: 1m30s
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "8080:8080"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
   nginx:
     image: 192.168.173.91:8082/repository/container/nginx:latest
     networks:
@@ -13,13 +23,6 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
-  redis:
-    hostname: redis
-    image: 192.168.173.91:8082/repository/container/redis:latest
-    networks:
-      - devops_net
-    ports:
-      - "7369:7369"
   sentinel:
     hostname: sentinel
     image: 192.168.173.91:8082/repository/container/sentinel_dashboard:1.3.0
@@ -37,16 +40,6 @@ services:
       - MODE=standalone
     ports:
       - "8848:8848"
-  visualizer:
-    image: 192.168.173.91:8082/repository/container/visualizer:latest
-    stop_grace_period: 1m30s
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    ports:
-      - "8080:8080"
-    deploy:
-      placement:
-        constraints: [node.role == manager]
   server:
     image: 192.168.173.91:8082/repository/container/server:latest
     networks:
@@ -62,6 +55,7 @@ services:
     deploy:
       mode: replicated
       replicas: 2
+
 networks:
   devops_net:
     external: true
