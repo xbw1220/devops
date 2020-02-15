@@ -28,19 +28,19 @@ jobs:
     - name: image build client
       run: |
         cp devops-client/devops-client-web/Dockerfile Dockerfile
-        docker build -t registry-vpc.cn-shenzhen.aliyuncs.com/devops/client --build-arg git_hash=client_`git rev-parse HEAD` .
+        docker build -t registry.cn-shenzhen.aliyuncs.com/devops/client --build-arg git_hash=client_`git rev-parse HEAD` .
         rm -f Dockerfile
-        echo "KZu8RIlynWJ7r" | docker login --username=puhengkeji --password-stdin registry-vpc.cn-shenzhen.aliyuncs.com
-        docker push registry-vpc.cn-shenzhen.aliyuncs.com/devops/client
+        echo "KZu8RIlynWJ7r" | docker login --username=puhengkeji --password-stdin registry.cn-shenzhen.aliyuncs.co
+        docker push registry.cn-shenzhen.aliyuncs.com/devops/client
         docker logout
 
     - name: image build server
       run: |
         cp devops-server/devops-server-web/Dockerfile Dockerfile
-        docker build -t registry-vpc.cn-shenzhen.aliyuncs.com/devops/server --build-arg git_hash=server_`git rev-parse HEAD` .
+        docker build -t registry.cn-shenzhen.aliyuncs.com/devops/server --build-arg git_hash=server_`git rev-parse HEAD` .
         rm -f Dockerfile
-        echo "KZu8RIlynWJ7r" | docker login --username=puhengkeji --password-stdin registry-vpc.cn-shenzhen.aliyuncs.com
-        docker push registry-vpc.cn-shenzhen.aliyuncs.com/devops/client
+        echo "KZu8RIlynWJ7r" | docker login --username=puhengkeji --password-stdin registry.cn-shenzhen.aliyuncs.com
+        docker push registry.cn-shenzhen.aliyuncs.com/devops/client
         docker logout
 
     - name: Upload Artifact
