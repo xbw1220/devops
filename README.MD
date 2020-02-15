@@ -26,21 +26,3 @@ public (active)
 2.build-push.sh 创建镜像并推送到nexus镜像仓库
 
 3.stack-devops.sh 启动服务
-
-
-#### 遇到的问题:
-1.挂载的问题，现在需要挂载文件的服务都放在主节点，并在compos文件中作了如下配置：
-~~~
-deploy:
-      placement:
-        constraints: [node.role == manager]
-~~~
-感觉需要所有节点上配置需要挂载的目录比较麻烦，不知道有没有更好的处理方式。
-
-2.关于client服务的网络注册问题，原计划直接把client的8080端口映射到宿主机上，并作了如下配置：
-~~~
-inetutils:
-      preferred-networks: ['10.0']
-      use-only-site-local-interfaces: true
-~~~
-结果却并不如预期的将10.0网段的IP注册到nacos上，而且将docker默认生成的devops-default网段注册到了nacos(只观察到这是一个概率事件，大概率不会注册10.0网段)
