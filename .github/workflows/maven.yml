@@ -33,7 +33,7 @@ jobs:
 
     - name: image build server
       run: |
-        cp devops-server/devops-server-web/Dockerfile server
+        cp devops-server/devops-server-web/Dockerfile Dockerfile
         docker build -t registry-vpc.cn-shenzhen.aliyuncs.com/devops/server -f server--build-arg git_hash=server_`git rev-parse HEAD`
         rm -f Dockerfile
 
