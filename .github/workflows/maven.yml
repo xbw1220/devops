@@ -28,13 +28,13 @@ jobs:
     - name: image build client
       run: |
         cp devops-client/devops-client-web/Dockerfile Dockerfile
-        docker build -t registry-vpc.cn-shenzhen.aliyuncs.com/devops/client -f client --build-arg git_hash=client_`git rev-parse HEAD`
+        docker build -t registry-vpc.cn-shenzhen.aliyuncs.com/devops/client --build-arg git_hash=client_`git rev-parse HEAD` .
         rm -f Dockerfile
 
     - name: image build server
       run: |
         cp devops-server/devops-server-web/Dockerfile Dockerfile
-        docker build -t registry-vpc.cn-shenzhen.aliyuncs.com/devops/server -f server--build-arg git_hash=server_`git rev-parse HEAD`
+        docker build -t registry-vpc.cn-shenzhen.aliyuncs.com/devops/server --build-arg git_hash=server_`git rev-parse HEAD` .
         rm -f Dockerfile
 
     - name: Upload Artifact
