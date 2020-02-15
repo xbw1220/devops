@@ -47,6 +47,21 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
+  server:
+    image: 192.168.173.91:8082/repository/container/server:latest
+    networks:
+      - devops_net
+    deploy:
+      mode: replicated
+      replicas: 3
+  client:
+    hostname: client
+    image: 192.168.173.91:8082/repository/container/client:latest
+    networks:
+      - devops_net
+    deploy:
+      mode: replicated
+      replicas: 2
 networks:
   devops_net:
     external: true
