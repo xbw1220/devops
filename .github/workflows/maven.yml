@@ -30,7 +30,7 @@ jobs:
         cp devops-client/devops-client-web/Dockerfile Dockerfile
         docker build -t registry.cn-shenzhen.aliyuncs.com/devops/client --build-arg git_hash=client_`git rev-parse HEAD` .
         rm -f Dockerfile
-        echo "KZu8RIlynWJ7r" | docker login --username=puhengkeji --password-stdin registry.cn-shenzhen.aliyuncs.co
+        echo "KZu8RIlynWJ7r" | docker login --username=puhengkeji --password-stdin registry.cn-shenzhen.aliyuncs.com
         docker push registry.cn-shenzhen.aliyuncs.com/devops/client
         docker logout
 
