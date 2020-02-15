@@ -3,12 +3,13 @@ spring:
     nacos:
       discovery:
         server-addr: nacos:8848
-#        network-interface: eth0
+        network-interface: eth0
       config:
         server-addr: nacos:8848
         file-extension: properties
-#    inetutils:
-#      preferred-networks: ['10.0']
-#      use-only-site-local-interfaces: true
+    sentinel:
+      eager: true
+      transport:
+        dashboard: sentinel:8858
   application:
     name: devops-client

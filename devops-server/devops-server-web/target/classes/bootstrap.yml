@@ -6,11 +6,15 @@ spring:
         network-interface: eth0
       config:
         server-addr: nacos:8848
-        file-extension: properties
+        file-extension: yaml
+        name: server
+    sentinel:
+      eager: true
+      transport:
+        dashboard: sentinel:8858
   redis:
-    host: 192.168.173.11
-  #    inetutils:
-#      preferred-networks: ['10.0']
-#      use-only-site-local-interfaces: true
+    host: redis
+    port: 7369
+
   application:
     name: devops-server
