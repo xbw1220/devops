@@ -18,7 +18,7 @@ jobs:
       with:
         java-version: 1.8
 
-      #        mvn -q -e -B -U clean install -pl devops-client/devops-client-api
+      #        mvn -q -e -B -U clean inps-client/devops-client-api
     - name: Maven Build
       run: |
         mvn -q -e -B -U clean install
@@ -28,12 +28,12 @@ jobs:
     - name: image build client
       run: |
         cp devops-client/devops-client-web/Dockerfile client
-        docker build -t registry-vpc.cn-shenzhen.aliyuncs.com/devops/client --build-arg git_hash=client_`git rev-parse HEAD` -f client
+        docker build -t registry-vpc.cn-shenzhen.aliyuncs.com/devops/client -f client --build-arg git_hash=client_`git rev-parse HEAD`
 
     - name: image build server
       run: |
         cp devops-server/devops-server-web/Dockerfile server
-        docker build -t registry-vpc.cn-shenzhen.aliyuncs.com/devops/server --build-arg git_hash=server_`git rev-parse HEAD` -f client
+        docker build -t registry-vpc.cn-shenzhen.aliyuncs.com/devops/server -f server--build-arg git_hash=server_`git rev-parse HEAD`
   
 
     - name: Upload Artifact
