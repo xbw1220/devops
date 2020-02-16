@@ -1,7 +1,8 @@
 version: "3.7"
 services:
+
   visualizer:
-    image: 192.168.173.91:8082/repository/container/visualizer:latest
+    image: dockersamples/visualizer
     stop_grace_period: 1m30s
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
@@ -10,10 +11,9 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
+
   nginx:
-    image: 192.168.173.91:8082/repository/container/nginx:latest
-    networks:
-      - devops_net
+    image: nginx:latest
     ports:
       - "80:80"
     volumes:
@@ -23,39 +23,45 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
+    networks:
+      - devops_net
+
   sentinel:
     hostname: sentinel
     image: 192.168.173.91:8082/repository/container/sentinel_dashboard:1.3.0
-    networks:
-      - devops_net
     ports:
       - "8858:8858"
-  nacos:
-    hostname: nacos
-    image: 192.168.173.91:8082/repository/container/nacos-server:latest
     networks:
       - devops_net
+
+  nacos:
+    hostname: nacos
+    image: nacos/nacos-server:latest
     environment:
       - PREFER_HOST_MODE=hostname
       - MODE=standalone
     ports:
       - "8848:8848"
-  server:
-    image: 192.168.173.91:8082/repository/container/server:latest
     networks:
       - devops_net
+
+  server:
+    image: xbw1220/server:latest
     deploy:
       mode: replicated
       replicas: 3
-  client:
-    hostname: client
-    image: 192.168.173.91:8082/repository/container/client:latest
     networks:
       - devops_net
+
+  client:
+    hostname: client
+    image: xbw1220/client:latest
     deploy:
       mode: replicated
       replicas: 2
+    networks:
+      - devops_net
 
 networks:
-  devops_net:
-    external: true
+  net:
+
