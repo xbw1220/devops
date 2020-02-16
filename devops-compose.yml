@@ -3,64 +3,82 @@ services:
 
   visualizer:
     image: dockersamples/visualizer
-    stop_grace_period: 1m30s
+    # stop_grace_period: 1m30s
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
     ports:
       - "8080:8080"
     deploy:
+      update_config:
+        order: start-first
       placement:
-        constraints: [node.role == manager]
+        constraints: [node.hostname == manager]
 
   nginx:
     image: nginx:latest
     ports:
       - "80:80"
-    volumes:
-      - ./nginx/logs:/var/log/nginx
-      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    # volumes:
+    #   - ./nginx/logs:/var/log/nginx
+    #   - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+    #   - ./nginx/conf.d/:/etc/nginx/conf.d/
     deploy:
       placement:
         constraints: [node.role == manager]
     networks:
-      - devops_net
+      - net
 
   sentinel:
     hostname: sentinel
-    image: 192.168.173.91:8082/repository/container/sentinel_dashboard:1.3.0
+    image: xbw1220/sentinel-dashboard:latest
+    deploy:
+      update_config:
+        order: start-first
+      placement:
+        constraints: [node.hostname == manager]
     ports:
-      - "8858:8858"
+      - "8858:8080"
     networks:
-      - devops_net
+      - net
 
   nacos:
     hostname: nacos
     image: nacos/nacos-server:latest
+    deploy:
+      update_config:
+        order: start-first
+      placement:
+        constraints: [node.hostname == manager]
     environment:
       - PREFER_HOST_MODE=hostname
       - MODE=standalone
     ports:
       - "8848:8848"
     networks:
-      - devops_net
+      - net
 
   server:
     image: xbw1220/server:latest
     deploy:
-      mode: replicated
-      replicas: 3
+      mode: global
+      update_config:
+        order: start-first
+      placement:
+        constraints: [node.role == worker]
     networks:
-      - devops_net
+      - net
 
   client:
     hostname: client
     image: xbw1220/client:latest
     deploy:
-      mode: replicated
-      replicas: 2
+      mode: global
+      update_config:
+        order: start-first
+      placement:
+        constraints: [node.role == worker]
     networks:
-      - devops_net
+      - net
 
 networks:
   net:
