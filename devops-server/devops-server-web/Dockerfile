@@ -1,11 +1,19 @@
-FROM  openjdk:8-jdk-alpine
+FROM openjdk:8-jdk-alpine
 
-MAINTAINER hchkang8710@gmail.com
+RUN mkdir -p /app && \
+    sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
+    chmod u+s /bin/busybox && \
+    apk update && apk add curl busybox-extras && \
+    apk add -U tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-RUN mkdir -p /data/server
+COPY ./target/devops-server-web-1.0-SNAPSHOT.jar /app/server.jar
+RUN  chown -R nobody:nobody /app
 
-WORKDIR /data/server
+ARG git_hash
+ENV git_version=$git_hash
+ENV JAVA_OPTS=$JAVA_OPTS
+EXPOSE 8080
+USER nobody
+WORKDIR /app
 
-ADD ./target/devops-server-web-1.0-SNAPSHOT.jar app.jar
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","server.jar"]

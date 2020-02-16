@@ -1,0 +1,53 @@
+name: devops Java CI
+
+#on: [push]
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+
+      #        mvn -q -e -B -U clean inps-client/devops-client-api
+    - name: Maven Build
+      run: |
+        mvn -q -e -B -U clean install
+        mvn -q -e -B -U clean package -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web
+        mkdir -p target && find . -type f -iname "devops-*-web-1.0-SNAPSHOT.jar" | xargs -i cp {} ./target/ | pwd && ls -lha ./target/
+
+    - name: image build client
+      run: |
+        cp devops-client/devops-client-web/Dockerfile Dockerfile
+        docker build -t xbw1220/client --build-arg git_hash=client_`git rev-parse HEAD` .
+        rm -f Dockerfile
+        echo "xibowei1220.." | docker login --username=xbw1220 --password-stdin
+        docker push xbw1220/client
+        docker logout
+
+    - name: image build server
+      run: |
+        cp devops-server/devops-server-web/Dockerfile Dockerfile
+        docker build -t xbw1220/server --build-arg git_hash=server_`git rev-parse HEAD` .
+        rm -f Dockerfile
+        echo "xibowei1220.." | docker login --username=xbw1220 --password-stdin
+        docker push xbw1220/server
+        docker logout
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: devops-web
+        path: ./target/
+
+      
+
