@@ -10,9 +10,9 @@ pipeline {
   stages {
     stage('maven build') {
       steps {
-        echo 'maven install'
-        sh 'mvn -q -e -B -U clean install'
-        sh 'mvn -q -e -B -U clean package -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web'
+        echo 'maven build jar'
+        sh 'mvn clean install -q -e -am -B -Dmaven.test.skip=true -pl devops-server/devops-server-api,devops-client/devops-client-api'
+        sh 'mvn clean package -q -e -B -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web'
       }
     }
 
