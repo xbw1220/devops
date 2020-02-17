@@ -2,6 +2,7 @@ pipeline {
   agent {
     docker {
       image '192.168.173.7/maven:3.6.3-jdk-8'
+      args '-v /var/jenkins_home/.m2:/root/.m2'
     }
 
   }
