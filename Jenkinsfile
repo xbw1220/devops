@@ -2,7 +2,8 @@ pipeline {
   agent {
     docker {
       image '192.168.173.7/maven:3.6.3-jdk-8'
-      args '-v /root/.m2:/root/.m2'
+      args '''-v /root/.m2:/root/.m2
+-v /var/run/docker.sock:/var/run/docker.sock'''
     }
 
   }
