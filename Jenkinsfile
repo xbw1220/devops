@@ -11,6 +11,7 @@ pipeline {
       steps {
         echo 'maven install'
         sh 'mvn -B -U clean install'
+        sh 'mvn -q -e -B -U clean package -Dmaven.test.skip=true -pl devops-server/devops-server-web,devops-client/devops-client-web'
       }
     }
 
