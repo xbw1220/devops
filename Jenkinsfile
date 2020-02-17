@@ -26,7 +26,8 @@ pipeline {
           sh '''echo "${password}" | docker login \\
   --username=${user} --password-stdin ${REGISTRY}'''
           sh '''docker push ${REGISTRY}/client
-docker logout'''
+docker logout
+docker rmi ${REGISTRY}/client'''
         }
 
         echo 'docker build image server'
@@ -37,7 +38,8 @@ docker logout'''
           sh '''echo "${password}" | docker login \\
   --username=${user} --password-stdin ${REGISTRY}'''
           sh '''docker push ${REGISTRY}/server
-docker logout'''
+docker logout
+docker rmi ${REGISTRY}/server'''
         }
 
       }
