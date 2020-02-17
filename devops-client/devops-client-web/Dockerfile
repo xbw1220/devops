@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM 192.168.173.7/openjdk:8-jdk-alpine
 
 RUN mkdir -p /app && \
     export http_proxy="http://192.168.173.5:10809" && \
