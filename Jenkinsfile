@@ -19,6 +19,7 @@ pipeline {
       steps {
         echo 'docker build image client'
         dir(path: 'devops-client/devops-client-web') {
+          sh 'pwd'
           sh '''docker build -t ${REGISTRY}/client \\
   --build-arg git_hash=client_`git rev-parse HEAD` .'''
           sh '''echo "${password}" | docker login \\
@@ -29,6 +30,7 @@ docker logout'''
 
         echo 'docker build image server'
         dir(path: 'devops-server/devops-server-web') {
+          sh 'pwd'
           sh '''docker build -t ${REGISTRY}/server \\
   --build-arg git_hash=server_`git rev-parse HEAD` .'''
           sh '''echo "${password}" | docker login \\
