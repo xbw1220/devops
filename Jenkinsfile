@@ -45,6 +45,13 @@ docker rmi ${REGISTRY}/server'''
       }
     }
 
+    stage('clean') {
+      steps {
+        echo 'clean images'
+        sh 'docker image prune -f'
+      }
+    }
+
   }
   environment {
     REGISTRY = '192.168.173.7:5001'
