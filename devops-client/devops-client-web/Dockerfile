@@ -6,7 +6,7 @@ RUN mkdir -p /app && \
     apk update && apk add curl busybox-extras && \
     apk add -U tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-COPY ./target/devops-client-web-1.0-SNAPSHOT.jar /app/client.jar
+COPY ./target/devops-client-web-*.jar /app/client.jar
 RUN  chown -R nobody:nobody /app
 
 ARG git_hash
