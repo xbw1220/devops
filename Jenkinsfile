@@ -30,6 +30,16 @@ add-apt-repository \\
    stable"
 apt-get update -y
 apt-get install -y docker-ce'''
+            sh '''cat << EOF > /etc/apt/sources.list
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
+EOF'''
           }
         }
 
