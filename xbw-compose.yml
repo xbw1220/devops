@@ -1,0 +1,89 @@
+version: "3.7"
+services:
+
+  visualizer:
+    image: 192.168.173.7/dockersamples/visualizer
+    # stop_grace_period: 1m30s
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "8080:8080"
+    deploy:
+      update_config:
+        order: start-first
+      placement:
+        constraints: [node.role == manager]
+
+---
+
+  version: "3.7"
+  services:
+  
+    nginx:
+      image: 192.168.173.7/nginx:latest
+      ports:
+        - "80:80"
+      # volumes:
+      #   - ./nginx/logs:/var/log/nginx
+      #   - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      #   - ./nginx/conf.d/:/etc/nginx/conf.d/
+      deploy:
+        placement:
+          constraints: [node.role == manager]
+      networks:
+        - net
+  
+    sentinel:
+      hostname: sentinel
+      image: 192.168.173.7/xbw1220/sentinel-dashboard:latest
+      deploy:
+        update_config:
+          order: start-first
+        placement:
+          constraints: [node.hostname == manager]
+      ports:
+        - "8858:8080"
+      networks:
+        - net
+  
+    nacos:
+      hostname: nacos
+      image: 192.168.173.7/nacos/nacos-server:latest
+      deploy:
+        update_config:
+          order: start-first
+        placement:
+          constraints: [node.role == manager]
+      environment:
+        - PREFER_HOST_MODE=hostname
+        - MODE=standalone
+      ports:
+        - "8848:8848"
+      networks:
+        - net
+  
+    server:
+      image: 192.168.173.7/server:latest
+      deploy:
+        mode: global
+        update_config:
+          order: start-first
+        placement:
+          constraints: [node.role == worker]
+      networks:
+        - net
+  
+    client:
+      hostname: client
+      image: 192.168.173.7/client:latest
+      deploy:
+        mode: global
+        update_config:
+          order: start-first
+        placement:
+          constraints: [node.role == worker]
+      networks:
+        - net
+  
+  networks:
+    net:
