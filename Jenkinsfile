@@ -21,15 +21,6 @@ pipeline {
         stage('docker install') {
           steps {
             echo 'Install Docker'
-            sh '''apt-get update -y
-apt-get install -y curl apt-transport-https ca-certificates curl gnupg2 software-properties-common
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-add-apt-repository \\
-   "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian \\
-   $(lsb_release -cs) \\
-   stable"
-apt-get update -y
-apt-get install -y docker-ce'''
             sh '''cat << EOF > /etc/apt/sources.list
 deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
@@ -40,6 +31,15 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib n
 deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
 EOF'''
+            sh '''apt-get update -y
+apt-get install -y curl apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+add-apt-repository \\
+   "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian \\
+   $(lsb_release -cs) \\
+   stable"
+apt-get update -y
+apt-get install -y docker-ce'''
           }
         }
 
