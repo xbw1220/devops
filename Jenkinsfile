@@ -45,7 +45,7 @@ docker logout'''
 
   }
   environment {
-    REGISTRY = '192.168.173.7'
+    REGISTRY = '192.168.173.7:5001'
     user = 'admin'
     password = 'admin123'
   }
