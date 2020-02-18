@@ -65,7 +65,7 @@ docker rmi ${REGISTRY}/server'''
           }
           steps {
             echo 'docker deploy stack '
-            git(url: 'https://github.com/kanghouchao/devops', branch: 'master', changelog: true)
+            git(url: 'https://github.com/kanghouchao/devops', branch: 'master')
           }
         }
 
