@@ -54,21 +54,6 @@ docker rmi ${REGISTRY}/server'''
       }
     }
 
-    stage('swarm deploy') {
-      agent {
-        node {
-          label 'deploy'
-        }
-
-      }
-      steps {
-        echo 'docker swarm stack'
-        git(url: 'https://github.com/kanghouchao/devops.git', branch: 'master', changelog: true)
-        sh '''pwd
-ls -l'''
-      }
-    }
-
   }
   environment {
     REGISTRY = '192.168.173.7:5001'
