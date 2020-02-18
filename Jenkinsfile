@@ -65,7 +65,7 @@ docker rmi ${REGISTRY}/server'''
           }
           steps {
             echo 'docker deploy stack '
-            sh 'echo $PATH'
+            sh 'ls -l'
           }
         }
 
