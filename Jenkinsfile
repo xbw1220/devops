@@ -48,27 +48,24 @@ docker rmi ${REGISTRY}/server'''
     }
 
     stage('master clean image') {
-      parallel {
-        stage('master clean image') {
-          steps {
-            echo 'clean images'
-            sh 'docker image prune -f'
-          }
+      steps {
+        echo 'clean images'
+        sh 'docker image prune -f'
+      }
+    }
+
+    stage('swarm deploy') {
+      agent {
+        node {
+          label 'deploy'
         }
 
-        stage('swarm deploy') {
-          agent {
-            node {
-              label 'deploy'
-            }
-
-          }
-          steps {
-            echo 'docker deploy stack '
-            sh 'ls -l'
-          }
-        }
-
+      }
+      steps {
+        echo 'docker swarm stack'
+        git(url: 'https://github.com/kanghouchao/devops.git', branch: 'master', changelog: true)
+        sh '''pwd
+ls -l'''
       }
     }
 
