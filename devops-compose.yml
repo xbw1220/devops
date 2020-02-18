@@ -30,6 +30,11 @@ services:
       - devops_net
     ports:
       - "8858:8858"
+  sentinel-cluster-server:
+    hostname: sentinel-cluster-server
+    image: 192.168.173.91:8082/repository/container/sentinel-cluster-server:latest
+    networks:
+      - devops_net
   nacos:
     hostname: nacos
     image: 192.168.173.91:8082/repository/container/nacos-server:latest

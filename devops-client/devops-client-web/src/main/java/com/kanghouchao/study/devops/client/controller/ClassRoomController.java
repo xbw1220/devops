@@ -1,9 +1,11 @@
 package com.kanghouchao.study.devops.client.controller;
 
-import com.kanghouchao.study.devops.server.api.client.GiftFeignClient;
+import com.kanghouchao.study.devops.client.manage.GiftManage;
+import com.kanghouchao.study.devops.client.vo.GiftVO;
 import com.kanghouchao.study.devops.server.api.dto.GiftDTO;
 import com.kanghouchao.study.devops.server.api.enums.ActivityType;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,16 +19,18 @@ import org.springframework.web.bind.annotation.RestController;
  * <p/>
  */
 @RestController
+@AllArgsConstructor
 public class ClassRoomController {
 
-    @Autowired
-    private GiftFeignClient giftFeignClient;
+    private GiftManage giftManage;
 
     @GetMapping("gift")
-    public ResponseEntity<String> get(ActivityType type, Long subjectId) {
-        ResponseEntity<GiftDTO> entity = giftFeignClient.get(type, subjectId);
-        assert entity.getBody() != null;
-        return ResponseEntity.ok(entity.getBody().getName());
+    public ResponseEntity<GiftVO> get(ActivityType type, Long subjectId) {
+        final GiftDTO dto = giftManage.get(type, subjectId);
+        final GiftVO vo = new GiftVO();
+        BeanUtils.copyProperties(dto, vo);
+        return ResponseEntity.ok(vo);
     }
 
 }
+
