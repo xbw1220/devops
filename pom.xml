@@ -11,6 +11,7 @@
         <module>devops-client</module>
         <module>devops-server</module>
         <module>sentinel-cluster-server</module>
+        <module>devops-gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -23,6 +24,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <rest-assured.version>4.1.2</rest-assured.version>
         <alibaba.cloud.version>2.1.0.RELEASE</alibaba.cloud.version>
+        <spring.cloud.version>Greenwich.SR2</spring.cloud.version>
+        <micrometer-registry-prometheus.version>1.3.5</micrometer-registry-prometheus.version>
     </properties>
 
     <dependencyManagement>
@@ -30,7 +33,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR2</version>
+                <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -38,21 +41,15 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.1.0.RELEASE</version>
+                <version>${alibaba.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
 
             <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-                <version>${alibaba.cloud.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-                <version>0.9.0.RELEASE</version>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-registry-prometheus</artifactId>
+                <version>${micrometer-registry-prometheus.version}</version>
             </dependency>
 
         </dependencies>
