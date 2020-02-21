@@ -23,18 +23,39 @@ services:
     deploy:
       placement:
         constraints: [node.hostname == vincent]
-  sentinel:
+    depends_on:
+      - client
+  prometheus:
+    image: 192.168.173.91:8082/repository/container/prometheus:latest
+    networks:
+      - devops_net
+    ports:
+      - "9090:9090"
+    depends_on:
+      - nacos
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/prometheus.rules.yml:/etc/prometheus/prometheus.rules.yml
+    deploy:
+      placement:
+        constraints: [node.hostname == vincent]
+  sentinel-dashboard:
     hostname: sentinel
-    image: 192.168.173.91:8082/repository/container/sentinel_dashboard:1.3.0
+    image: 192.168.173.91:8082/repository/container/sentinel_dashboard:1.7.1
     networks:
       - devops_net
     ports:
       - "8858:8858"
-  sentinel-cluster-server:
-    hostname: sentinel-cluster-server
-    image: 192.168.173.91:8082/repository/container/sentinel-cluster-server:latest
+    depends_on:
+      - sentinel
+  sentinel-token-server:
+    hostname: sentinel-envoy-rls-token-server
+    image: 192.168.173.91:8082/repository/container/sentinel-envoy-rls-token-server:1.7.1
     networks:
       - devops_net
+    environment:
+      - SENTINEL_RLS_RULE_FILE_PATH=/tmp/sentinel/rule.yaml
+      - SENTINEL_RLS_ACCESS_LOG=on
   nacos:
     hostname: nacos
     image: 192.168.173.91:8082/repository/container/nacos-server:latest
@@ -52,14 +73,22 @@ services:
     deploy:
       mode: replicated
       replicas: 3
+    depends_on:
+      - nacos
+      - sentinel
   client:
     hostname: client
     image: 192.168.173.91:8082/repository/container/client:latest
     networks:
       - devops_net
     deploy:
+      endpoint_mode: dnsrr
       mode: replicated
       replicas: 2
+    depends_on:
+      - nacos
+      - sentinel
+      - sentinel-token-server
 networks:
   devops_net:
     external: true
