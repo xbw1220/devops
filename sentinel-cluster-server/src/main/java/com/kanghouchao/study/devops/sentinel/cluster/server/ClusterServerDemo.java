@@ -41,7 +41,7 @@ public class ClusterServerDemo {
         // See the sample in DemoClusterServerInitFunc for detail.
         ClusterServerConfigManager.loadGlobalTransportConfig(new ServerTransportConfig()
             .setIdleSeconds(600)
-            .setPort(8080));
+            .setPort(1111));
         ClusterServerConfigManager.loadServerNamespaceSet(Collections.singleton(DemoConstants.APP_NAME));
 
         // Start the server.
