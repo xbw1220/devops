@@ -16,7 +16,6 @@
 package com.kanghouchao.study.devops.server.service;
 
 import com.kanghouchao.study.devops.server.api.enums.ActivityType;
-import com.kanghouchao.study.devops.server.vo.GiftVO;
 
 /**
  * @author Lurker
@@ -28,12 +27,10 @@ import com.kanghouchao.study.devops.server.vo.GiftVO;
 public interface IGiftInfoStrategyService {
 
     /**
-     * 根据项目ID获取礼品包信息
      *
-     * @param subjectId 项目ID
-     * @return 礼品包
+     * @return 字符串
      */
-    GiftVO get(Long subjectId);
+    String get();
 
     /**
      * 获取策略模式实现类型

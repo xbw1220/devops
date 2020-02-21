@@ -15,6 +15,8 @@
  */
 package com.kanghouchao.study.devops.server.api.enums;
 
+import javax.xml.crypto.Data;
+
 /**
  * @author Lurker
  * <p>
@@ -27,14 +29,31 @@ public enum ActivityType {
     /**
      * 普通活动
      */
-    Ordinary,
+    Ordinary(0),
     /**
      * 夏日满减
      */
-    SummerBuyDay,
+    SummerBuyDay(1),
     /**
      * 双十一
      */
-    DoubleEleven;
+    DoubleEleven(2);
+
+    private int code;
+
+    ActivityType(int code) {
+        this.code = code;
+    }
+
+    public static ActivityType getByCode(int code) {
+        switch (code) {
+            case 1:
+                return SummerBuyDay;
+            case 2:
+                return DoubleEleven;
+            default:
+                return Ordinary;
+        }
+    }
 
 }

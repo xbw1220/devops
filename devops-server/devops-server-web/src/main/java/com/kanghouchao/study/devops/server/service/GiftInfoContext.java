@@ -17,7 +17,8 @@ package com.kanghouchao.study.devops.server.service;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.kanghouchao.study.devops.server.api.enums.ActivityType;
-import com.kanghouchao.study.devops.server.vo.GiftVO;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -31,25 +32,25 @@ import java.util.List;
  * <p/>
  */
 @Component
+@RefreshScope
 public class GiftInfoContext {
 
     @Resource
     private List<IGiftInfoStrategyService> services;
 
+    @Value("${type:0}")
+    private int code;
+
 
     /**
-     * 对外暴露的统一获取礼品信息的返回
-     *
-     * @param subjectId 项目编号
-     * @param type      活动类型
-     * @return 礼品信息
+     * @return 调用信息
      */
     @SentinelResource(value = "GiftInfo")
-    public GiftVO getGiftInfo(Long subjectId, ActivityType type) {
+    public String clusterFlow() {
         final IGiftInfoStrategyService service = services.stream().filter(
-                s -> s.getType().equals(type)
+                s -> s.getType().equals(ActivityType.getByCode(code))
         ).findFirst().orElseThrow(() -> new RuntimeException("对此类型没有业务实现"));
-        return service.get(subjectId);
+        return service.get();
     }
 
 }

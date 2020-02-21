@@ -15,12 +15,9 @@
  */
 package com.kanghouchao.study.devops.server.api.client;
 
-import com.kanghouchao.study.devops.server.api.dto.GiftDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import com.kanghouchao.study.devops.server.api.enums.ActivityType;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author Lurker
@@ -34,13 +31,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface GiftAPI {
 
     /**
-     * 根据类型和ID获取数据
-     *
-     * @param type      类型
-     * @param subjectId 项目ID
      * @return 礼物
      */
-    @GetMapping("get")
-    ResponseEntity<GiftDTO> get(@RequestParam("type") ActivityType type, @RequestParam("subject_id") Long subjectId);
+    @GetMapping("cluster_flow")
+    ResponseEntity<String> clusterFlow();
 
 }

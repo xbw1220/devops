@@ -11,6 +11,6 @@ spring:
     sentinel:
       eager: true
       transport:
-        dashboard: sentinel:8858
+        dashboard: sentinel-dashboard:8858
   application:
     name: devops-server

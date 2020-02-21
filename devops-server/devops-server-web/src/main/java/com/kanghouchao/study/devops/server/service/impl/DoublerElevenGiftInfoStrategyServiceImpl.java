@@ -17,10 +17,7 @@ package com.kanghouchao.study.devops.server.service.impl;
 
 import com.kanghouchao.study.devops.server.api.enums.ActivityType;
 import com.kanghouchao.study.devops.server.service.IGiftInfoStrategyService;
-import com.kanghouchao.study.devops.server.vo.GiftVO;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 
 /**
  * @author Lurker
@@ -35,13 +32,8 @@ public class DoublerElevenGiftInfoStrategyServiceImpl implements IGiftInfoStrate
     private final ActivityType type = ActivityType.DoubleEleven;
 
     @Override
-    public GiftVO get(Long subjectId) {
-        GiftVO vo = new GiftVO();
-        vo.setSubjectId(subjectId);
-        vo.setId(10000L);
-        vo.setName("跌价礼品盒");
-        vo.setPrice(new BigDecimal("10.00"));
-        return vo;
+    public String get() {
+        return "跌价礼品";
     }
 
     @Override

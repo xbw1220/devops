@@ -16,13 +16,8 @@
 package com.kanghouchao.study.devops.server.controller;
 
 import com.kanghouchao.study.devops.server.api.client.GiftAPI;
-import com.kanghouchao.study.devops.server.api.dto.GiftDTO;
-import com.kanghouchao.study.devops.server.api.enums.ActivityType;
 import com.kanghouchao.study.devops.server.service.GiftInfoContext;
-import com.kanghouchao.study.devops.server.vo.GiftVO;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +29,6 @@ import org.springframework.web.bind.annotation.RestController;
  * 联系方式: hchkang8710@gmail.com
  * <p/>
  */
-@Slf4j
 @RestController
 @RequestMapping("gift")
 @AllArgsConstructor
@@ -43,11 +37,7 @@ public class GiftController implements GiftAPI {
     private GiftInfoContext context;
 
     @Override
-    public ResponseEntity<GiftDTO> get(ActivityType type, Long subjectId) {
-        log.debug("the type is {}", type);
-        GiftVO vo = context.getGiftInfo(subjectId, type);
-        GiftDTO dto = new GiftDTO();
-        BeanUtils.copyProperties(vo, dto);
-        return ResponseEntity.ok(dto);
+    public ResponseEntity<String> clusterFlow() {
+        return ResponseEntity.ok(context.clusterFlow());
     }
 }
