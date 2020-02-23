@@ -8,4 +8,4 @@ WORKDIR /data/server
 
 ADD ./target/devops-gateway-1.0-SNAPSHOT.jar app.jar
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "-Dcsp.sentinel.app.type=1", "app.jar"]
