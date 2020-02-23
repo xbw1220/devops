@@ -18,7 +18,7 @@ package com.kanghouchao.study.devops.server.api.client;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-
+GiftAPI
 /**
  * @author Lurker
  * @since 2019/12/18
