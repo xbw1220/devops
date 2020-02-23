@@ -20,7 +20,7 @@ package com.kanghouchao.study.devops.sentinel.cluster.server;
  */
 public final class DemoConstants {
 
-    public static final String APP_NAME = "sentinel-cluster-server";
+    public static final String APP_NAME = "devops-client";
 
     public static final String FLOW_POSTFIX = "-flow-rules";
     public static final String PARAM_FLOW_POSTFIX = "-param-rules";

@@ -36,7 +36,7 @@ import java.util.Set;
  */
 public class DemoClusterServerInitFunc implements InitFunc {
 
-    private final String remoteAddress = "127.0.0.1";
+    private final String remoteAddress = "nacos";
     private final String groupId = "SENTINEL_GROUP";
     private final String namespaceSetDataId = "cluster-server-namespace-set";
     private final String serverTransportDataId = "cluster-server-transport-config";
