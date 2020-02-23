@@ -18,6 +18,7 @@ public class ClusterFlowManageImpl implements ClusterFlowManage {
     @Override
     @SentinelResource(value = "cluster_flow", blockHandler = "exceptionHandler", fallback = "giftFallback")
     public String clusterFlow() {
+        System.out.println("=== 调用原始方法 ===");
         ResponseEntity<String> entity = giftFeignClient.clusterFlow();
         if (entity != null) {
             return entity.getBody();
@@ -27,11 +28,13 @@ public class ClusterFlowManageImpl implements ClusterFlowManage {
 
     // Fallback 函数，函数签名与原函数一致或加一个 Throwable 类型的参数.
     public String giftFallback() {
+        System.out.println("=== 调用降级处理方法 ===");
         return "降级处理";
     }
 
     // Block 异常处理函数，参数最后多一个 BlockException，其余与原函数一致.
     public String exceptionHandler(BlockException ex) {
+        System.out.println("=== 调用限流处理方法 ===");
         return "限流处理";
     }
 
