@@ -1,6 +1,7 @@
 package com.kanghouchao.study.devops.client.config;
 
 import com.alibaba.csp.sentinel.annotation.aspectj.SentinelResourceAspect;
+import com.alibaba.csp.sentinel.cluster.ClusterStateManager;
 import com.alibaba.csp.sentinel.cluster.client.config.ClusterClientAssignConfig;
 import com.alibaba.csp.sentinel.cluster.client.config.ClusterClientConfig;
 import com.alibaba.csp.sentinel.cluster.client.config.ClusterClientConfigManager;
@@ -28,7 +29,7 @@ public class SentinelAspectConfiguration {
     private static final String FLOW_POSTFIX = "-flow-rules";
 
     private static final String CLUSTER_SERVER_HOST = "sentinel-token-server";
-    private static final int CLUSTER_SERVER_PORT = 10245;
+    private static final int CLUSTER_SERVER_PORT = 11111;
     private static final int REQUEST_TIME_OUT = 200;
 
     @Bean
@@ -57,6 +58,7 @@ public class SentinelAspectConfiguration {
         ClusterClientConfig clientConfig = new ClusterClientConfig();
         clientConfig.setRequestTimeout(REQUEST_TIME_OUT);
         ClusterClientConfigManager.applyNewConfig(clientConfig);
+        ClusterStateManager.applyState(ClusterStateManager.CLUSTER_CLIENT);
     }
 
     /**
