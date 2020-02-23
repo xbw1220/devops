@@ -38,7 +38,7 @@ public class GiftInfoContext {
     @Resource
     private List<IGiftInfoStrategyService> services;
 
-    @Value("${type:0}")
+    @Value("${type:1}")
     private int code;
 
 
