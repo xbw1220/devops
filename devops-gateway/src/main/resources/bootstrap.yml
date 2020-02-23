@@ -1,0 +1,35 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos:8848
+        network-interface: eth0
+    sentinel:
+      eager: true
+      transport:
+        dashboard: sentinel-dashboard:8858
+    loadbalancer:
+      retry:
+        enabled: true
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: devops-server
+          uri: lb://devops-server
+          predicates:
+            - Path=/devops-server/**
+        - id: devops-client
+          uri: lb://devops-client
+          predicates:
+            - Path=/devops-client/**
+  application:
+    name: devops-gateway
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
