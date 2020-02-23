@@ -26,13 +26,26 @@ public class ClusterFlowManageImpl implements ClusterFlowManage {
         return null;
     }
 
-    // Fallback 函数，函数签名与原函数一致或加一个 Throwable 类型的参数.
+    /**
+     * <p>
+     * Fallback 函数，函数签名与原函数一致或加一个 Throwable 类型的参数.
+     * 当调用原始方法报错时，会调用此方法，此时会先调用原始方法
+     * </P>
+     */
     public String giftFallback() {
         System.out.println("=== 调用降级处理方法 ===");
         return "降级处理";
     }
 
-    // Block 异常处理函数，参数最后多一个 BlockException，其余与原函数一致.
+    /**
+     * <p>
+     * Block 异常处理函数，参数最后多一个 BlockException，其余与原函数一致.
+     * 当原始方法调用达到限流设置的阈值时，才调用此方法,此时原始方法不会被调用
+     * </p>
+     *
+     * @param ex
+     * @return
+     */
     public String exceptionHandler(BlockException ex) {
         System.out.println("=== 调用限流处理方法 ===");
         return "限流处理";
