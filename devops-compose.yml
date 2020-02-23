@@ -24,7 +24,7 @@ services:
       placement:
         constraints: [node.hostname == vincent]
     depends_on:
-      - client
+      - gateway
   prometheus:
     image: 192.168.173.91:8082/repository/container/prometheus:latest
     networks:
@@ -64,30 +64,45 @@ services:
     environment:
       - PREFER_HOST_MODE=hostname
       - MODE=standalone
+    volumes:
+      - ./standalone-logs/:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
     ports:
       - "8848:8848"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
   server:
     image: 192.168.173.91:8082/repository/container/server:latest
     networks:
       - devops_net
     deploy:
       mode: replicated
-      replicas: 3
+      replicas: 2
     depends_on:
       - nacos
-      - sentinel
+      - sentinel-dashboard
+  gateway:
+    hostname: gateway
+    image: 192.168.173.91:8082/repository/container/gateway:latest
+    networks:
+      - devops_net
+    deploy:
+      mode: replicated
+      replicas: 1
+    depends_on:
+      - nacos
+      - sentinel-dashboard
   client:
-    hostname: client
     image: 192.168.173.91:8082/repository/container/client:latest
     networks:
       - devops_net
     deploy:
-      endpoint_mode: dnsrr
       mode: replicated
       replicas: 2
     depends_on:
       - nacos
-      - sentinel
+      - sentinel-dashboard
       - sentinel-token-server
 networks:
   devops_net:
