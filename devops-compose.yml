@@ -50,12 +50,14 @@ services:
       - sentinel
   sentinel-token-server:
     hostname: sentinel-envoy-rls-token-server
-    image: 192.168.173.91:8082/repository/container/sentinel-envoy-rls-token-server:1.7.1
+    image: 192.168.173.91:8082/repository/container/sentinel-cluster-server:latest
     networks:
       - devops_net
-    environment:
-      - SENTINEL_RLS_RULE_FILE_PATH=/tmp/sentinel/rule.yaml
-      - SENTINEL_RLS_ACCESS_LOG=on
+    ports:
+      - "8719:8719"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
   nacos:
     hostname: nacos
     image: 192.168.173.91:8082/repository/container/nacos-server:latest
@@ -89,7 +91,7 @@ services:
       - devops_net
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 2
     depends_on:
       - nacos
       - sentinel-dashboard
@@ -98,6 +100,7 @@ services:
     networks:
       - devops_net
     deploy:
+      endpoint_mode: dnsrr
       mode: replicated
       replicas: 2
     depends_on:
